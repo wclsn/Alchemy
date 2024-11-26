@@ -1,0 +1,4 @@
+mathlib4
+outputs/verify
+candidate_theorems.pickle
+traced_repo*.pickle
