@@ -1,28 +1,18 @@
-import re
 import os
 import sys
 sys.path.append("..")
-import json
 import tqdm
-import pickle
-import numpy as np
 import random
 random.seed(42)
-from pathlib import Path
 os.environ["GITHUB_ACCESS_TOKEN"] = "Your Github Token"
-from lean_dojo import LeanGitRepo, Theorem, Dojo, trace
-from lean_dojo import interaction
+from lean_dojo import LeanGitRepo,trace
 from lean_dojo.data_extraction.ast import *
-from lean_dojo.data_extraction.lean import Pos
-from _utils import load_jsonl, save_jsonl, random_select 
+from _utils import load_jsonl, save_jsonl
 from _logic import filtering_single_goal
-from _parse import extract_id_decl_proof, parse_hypothesis
 from _modify import modify_theorem_rw, modify_theorem_apply
-import matplotlib.pyplot as plt
-random.seed(42)
 
-GEN_MODE = "apply"
-INVOCABLE_THEOREMS_DIR = ""
+GEN_MODE = "apply" # "rw" or "apply"
+INVOCABLE_THEOREMS_DIR = ""  # The directory which stores invocable theorems for different target theorems.
 
 if __name__ == "__main__":
     repo = LeanGitRepo(
@@ -56,10 +46,9 @@ if __name__ == "__main__":
             else:
                 file2theorem[traced_file_path].append(target_theorem)
 
-    
-    # for each traced_file find the related traced_theorems and find the start and end of this theorems
-    # for each target_theorem in this file, modify the theorem and get modified theorems 
-    # insert all modified theorems of all traced theorems in this file at once
+    # for each traced_file find the related target theorems and the start and end of these theorems
+    # for each target_theorem in this file, modify the theorem and get variants
+    # insert all modified theorems of all target theorems in this file at once (record their location)
     lean_corpus = []
     test_files = list(file2theorem.items())
     for traced_file, target_theorems in tqdm.tqdm(test_files, total=len(test_files)):

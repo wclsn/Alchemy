@@ -4,9 +4,8 @@ import multiprocessing
 from tqdm import tqdm
 from lean_dojo import LeanGitRepo
 from lean_dojo.data_extraction.ast import *
-from lean_dojo.data_extraction.lean import Pos
 from _utils import load_jsonl, save_jsonl
-from lean_dojo.data_extraction.traced_data import TracedRepo, TracedFile, TracedTactic
+from lean_dojo.data_extraction.traced_data import TracedFile, TracedTactic
 
 def parse_args():
     parser = argparse.ArgumentParser()

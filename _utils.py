@@ -1,18 +1,12 @@
-"""
-Load the JSON file and rewrite it as a Markdown file.
-"""
 import os
 import json
-import math
 import argparse
 import numpy as np
 from pathlib import Path
-import concurrent.futures as cf
 from typing import Iterable, Union, Any
 from lean_dojo import DojoInitError
 from lean_dojo.data_extraction.traced_data import TracedTheorem, TracedFile
 
-    
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--file_path', type=str, default=None)

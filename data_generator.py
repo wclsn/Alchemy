@@ -82,7 +82,7 @@ def main():
 
     checkpoint_file = output_path + "/checkpoint.txt"  
     local_checkpoint_file = output_path + "/local_checkpoint.txt" 
-    #set github personal access token to avoid rate limit error
+    # set github personal access token to avoid rate limit error
     if args.personal_token != '':
         os.environ['GITHUB_ACCESS_TOKEN'] = args.personal_token
     

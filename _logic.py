@@ -39,7 +39,7 @@ def get_rw_insts(p_theorem_name, hypo_names):
 
 # hypos
 def is_invocable_theorem(
-    dojo, init_state, possible_invocable_theorem, hypos, mode="iff"
+    dojo, init_state, possible_invocable_theorem, hypos, mode="rw"
 ):
     p_t_name = possible_invocable_theorem.theorem.full_name
     # decouple the hypos
@@ -127,7 +127,7 @@ def get_invocable_theorems_with_dojo(
         do = True
         if possible_invocable_theorem != target_theorem:
             if isinstance(possible_invocable_theorem.theorem.full_name, str):
-                # drop the theorems which will make dojo crash (This is a temporary solution which depends on the dojo commit)
+                # drop the theorems which will make dojo crash (This is a temporary solution which depends on the mathlib commit)
                 if "$" in possible_invocable_theorem.theorem.full_name:
                     print(possible_invocable_theorem.theorem.full_name)
                     do = False
@@ -160,7 +160,7 @@ def get_invocable_theorems_with_dojo(
                         }
                     )
 
-        # incrementally rewrite
+        # incrementally save the results
         if with_checkpoint:
             if idx % checkpoint_interval == 0:
                 save_jsonl(
@@ -169,7 +169,7 @@ def get_invocable_theorems_with_dojo(
                     mode_="a",
                     show_message=False,
                 )
-                if cache_error_file:
+                if cache_error_file: 
                     save_jsonl(
                         error_list,
                         output_path

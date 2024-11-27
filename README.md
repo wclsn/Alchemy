@@ -15,7 +15,7 @@ export GITHUB_ACCESS_TOKEN="Your Github Access Token"
 elan toolchain install leanprover/lean4:v4.6.0-rc1
 ```
 ## Tutorial
-We provide a tutorial (pipeline.ipynb) for how to mutating a demo theorem using theorems in Mathlib, why may be helpful for you to understanding our method. It includes the process to synthesize its variants, verify their correctness using Lean and trace the state-tactics.
+We provide a tutorial (pipeline.ipynb) for how to mutate a demo theorem using theorems in Mathlib, which may be helpful for you to understanding our method. It includes the process to synthesize its variants, verify their correctness using Lean and trace the state-tactics.
 
 ## Alchemy
 We provide several scripts for data-synthesis on mathlib.
@@ -29,7 +29,7 @@ bash ./scripts/run_with_checkpoint.sh {target_start} {target_end} {gen_mode} {ti
 ```
 ### Mutate the Theorems
 ```bash
-# You can reference the implementation in mutate.py.
+# You can take the implementation in mutate.py as reference.
 python mutate.py
 ```
 ### Verify the Theorems
@@ -45,7 +45,7 @@ python verify.py --data_path {synthesized_data_path} --output_path {output_path}
 # You should write the variants into the mathlib repo and create a new github repo.
 # Then you can use Leandojo to trace this repo.
 # The traced cache is stored in traced_cache.
-python extract_state_tactic.py --num_procs {num_procs} --repo_url {repo_url} --repo_commit {repo_commit} --traced_cache {the path of traced cache} --synthesized_corpus_path {synthesized corpus}
+python extract_state_tactic.py --num_procs {num_procs} --repo_url {repo_url} --repo_commit {repo_commit} --traced_cache {path_of_traced_cache} --synthesized_corpus_path {path_of_synthesized_corpus}
 ```
 
 ### Citations

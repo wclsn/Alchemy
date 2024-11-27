@@ -70,12 +70,13 @@ if __name__ == "__main__":
     args = parse_args()
     # load the synthesized corpus
     DATA_PATH = args.data_path
+    GEN_MODE = "apply"
     mathlib_package_path = "./mathlib4"
     output_path = args.output_path
 
     PACKAGE_NAME = "Mathlib"
     LIBRARY_ROOT_FILE = os.path.join(mathlib_package_path, PACKAGE_NAME + '.lean')
-    corpus_path = DATA_PATH + "/synthesized_corpus.jsonl"
+    corpus_path = DATA_PATH + f"/synthesized_corpus_{GEN_MODE}_without_verify.jsonl"
 
     if not os.path.exists(output_path):
         os.makedirs(output_path)
