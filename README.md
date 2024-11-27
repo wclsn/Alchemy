@@ -1,5 +1,5 @@
-# Alchemy-Code
-This repository stores the code for Paper [Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation](https://arxiv.org/abs/2410.15748)
+# Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation
+![Overview](image/overview.jpg)
 
 ## Setup
 ### Prerequisites
