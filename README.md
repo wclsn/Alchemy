@@ -15,7 +15,7 @@ export GITHUB_ACCESS_TOKEN="Your Github Access Token"
 elan toolchain install leanprover/lean4:v4.6.0-rc1
 ```
 ## Tutorial
-We present an tutorial (pipeline.ipynb) for how to mutating a demo theorem using theorems in Mathlib. It includes the process to synthesize its variants, verify their correctness using Lean and trace the state-tactics.
+We provide a tutorial (pipeline.ipynb) for how to mutating a demo theorem using theorems in Mathlib, why may be helpful for you to understanding our method. It includes the process to synthesize its variants, verify their correctness using Lean and trace the state-tactics.
 
 ## Alchemy
 We provide several scripts for data-synthesis on mathlib.
@@ -46,4 +46,26 @@ python verify.py --data_path {synthesized_data_path} --output_path {output_path}
 # Then you can use Leandojo to trace this repo.
 # The traced cache is stored in traced_cache.
 python extract_state_tactic.py --num_procs {num_procs} --repo_url {repo_url} --repo_commit {repo_commit} --traced_cache {the path of traced cache} --synthesized_corpus_path {synthesized corpus}
+```
+
+### Citations
+```
+@article{DBLP:journals/corr/abs-2410-15748,
+  author       = {Shaonan Wu and
+                  Shuai Lu and
+                  Yeyun Gong and
+                  Nan Duan and
+                  Ping Wei},
+  title        = {Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation},
+  journal      = {CoRR},
+  volume       = {abs/2410.15748},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2410.15748},
+  doi          = {10.48550/ARXIV.2410.15748},
+  eprinttype    = {arXiv},
+  eprint       = {2410.15748},
+  timestamp    = {Tue, 26 Nov 2024 15:54:18 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2410-15748.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 ```
