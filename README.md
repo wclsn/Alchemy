@@ -1,4 +1,4 @@
-# Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation
+# Alchemy: Amplifying Theorem-Proving Capability through Symbolic Mutation (ICLR 2025)
 ![Overview](image/overview.jpg)
 
 ## Setup
