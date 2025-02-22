@@ -10,7 +10,7 @@ curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf 
 pip install lean-dojo==1.7.1
 pip install numpy tqdm
 # Set the env variables 
-export PATH=$$HOME/.elan/bin:$$PATH  
+export PATH=$HOME/.elan/bin:$PATH  
 export GITHUB_ACCESS_TOKEN="Your Github Access Token"
 elan toolchain install leanprover/lean4:v4.6.0-rc1
 ```
